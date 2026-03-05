@@ -1,564 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#faf6f1" />
-  <title>KankanGames | Performance-First Game Development</title>
-  <meta name="description" content="KankanGames - High-performance game development studio. Creators of DeepBound Engine and Shadow of Roles. Founded by a CS student at Bilkent University." />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            mono: ['Space Grotesk', 'monospace'],
-          },
-          colors: {
-            background: '#faf6f1',
-            foreground: '#2c1810',
-            card: '#ffffff',
-            'card-foreground': '#2c1810',
-            primary: '#8b5e3c',
-            'primary-foreground': '#faf6f1',
-            secondary: '#f0e6da',
-            'secondary-foreground': '#2c1810',
-            muted: '#f0e6da',
-            'muted-foreground': '#8c7a6b',
-            accent: '#c49a6c',
-            'accent-foreground': '#2c1810',
-            border: '#ddd0c3',
-          },
-          borderRadius: {
-            '2xl': '1rem',
-          }
-        },
-      },
-    }
-  </script>
-
-  <style>
-    html { scroll-behavior: smooth; }
-    body { background-color: #faf6f1; color: #2c1810; }
-
-    @keyframes fade-up {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes glow-pulse {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 1; }
-    }
-    .animate-fade-up { animation: fade-up 0.8s ease-out forwards; }
-    .animate-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
-
-    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-    .slide-left { opacity: 0; transform: translateX(-40px); transition: opacity 1s ease-out, transform 1s ease-out; }
-    .slide-left.visible { opacity: 1; transform: translateX(0); }
-
-    .slide-right { opacity: 0; transform: translateX(40px); transition: opacity 1s ease-out, transform 1s ease-out; }
-    .slide-right.visible { opacity: 1; transform: translateX(0); }
-  </style>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Craft Panel</title>
+    <link rel="stylesheet" href="globals.css"/>
+    <link rel="stylesheet" href="style.css"/>
 </head>
-<body class="font-sans antialiased">
+<body>
+<div class="craft">
+    <div class="container">
+        <nav class="navbar">
+            <div class="player-info card">
+                <img class="player-photo"/>
+                <div class="welcome-group">
+                    <span class="welcome-text" data-localize="welcome_text">Welcome</span>
+                    <h2 class="player-name">Alberto</h2>
+                </div>
+                <div class="job-group">
+                    <span class="player-job">Pond Cafe</span>
+                </div>
+            </div>
 
-  <!-- ==================== NAVBAR ==================== -->
-  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-      <a href="#" class="flex items-center gap-2.5 group">
-        <!-- Gamepad Icon -->
-        <svg class="h-6 w-6 text-primary transition-transform group-hover:rotate-12" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1.09 0 2.04-.586 2.56-1.46l.82-1.38A2 2 0 0 1 10.1 15h3.8a2 2 0 0 1 1.72.98l.82 1.37A3.01 3.01 0 0 0 19 19a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg>
-        <span class="font-mono text-lg font-bold tracking-tight text-foreground">
-          Kankan<span class="text-primary">Games</span>
-        </span>
-      </a>
+            <div class="navigation-buttons">
+                <button class="nav-button active" data-type="all">
+                    <img class="icon" src="assets/svg/all.svg" alt="All"/>
+                    <span class="text" data-localize="nav_all">All</span>
+                </button>
+                <button class="nav-button" data-type="food">
+                    <img class="icon" src="assets/svg/foods.svg" alt="Foods"/>
+                    <span class="text" data-localize="nav_foods">Foods</span>
+                </button>
+                <button class="nav-button" data-type="desserts">
+                    <img class="icon" src="assets/svg/desserts.svg" alt="Desserts"/>
+                    <span class="text" data-localize="nav_desserts">Desserts</span>
+                </button>
+                <button class="nav-button" data-type="drinks">
+                    <img class="icon" src="assets/svg/drinks.svg" alt="Drinks"/>
+                    <span class="text" data-localize="nav_drinks">Drinks</span>
+                </button>
+            </div>
+            <button class="exit-button nav-button" data-type="exit">
+                <img class="icon" src="assets/svg/exit.svg" alt="Exit"/>
+                <span class="text" data-localize="nav_exit">Exit</span>
+            </button>
+        </nav>
 
-      <!-- Desktop Nav -->
-      <div class="hidden md:flex items-center gap-8">
-        <a href="#" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Home</a>
-        <a href="#projects" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Projects</a>
-        <a href="#" class="relative text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-          Technical Blog
-          <span class="absolute -top-2 -right-12 text-[9px] bg-accent/30 text-accent-foreground px-1.5 py-0.5 rounded-full font-mono">Coming Soon</span>
-        </a>
-        <a href="#contact" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Contact</a>
-      </div>
-
-      <!-- Mobile Menu Button -->
-      <button id="menu-btn" class="md:hidden text-foreground" aria-label="Open menu">
-        <svg id="menu-icon" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        <svg id="close-icon" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
-    </nav>
-
-    <!-- Mobile Nav -->
-    <div id="mobile-menu" class="hidden md:hidden bg-background/98 backdrop-blur-xl border-b border-border">
-      <div class="flex flex-col px-6 py-6 gap-5">
-        <a href="#" class="mobile-link text-base font-medium text-muted-foreground hover:text-primary transition-colors">Home</a>
-        <a href="#projects" class="mobile-link text-base font-medium text-muted-foreground hover:text-primary transition-colors">Projects</a>
-        <a href="#" class="mobile-link flex items-center gap-2 text-base font-medium text-muted-foreground hover:text-primary transition-colors">
-          Technical Blog
-          <span class="text-[9px] bg-accent/30 text-accent-foreground px-1.5 py-0.5 rounded-full font-mono">Coming Soon</span>
-        </a>
-        <a href="#contact" class="mobile-link text-base font-medium text-muted-foreground hover:text-primary transition-colors">Contact</a>
-      </div>
+        <main class="main-panel">
+            <header class="main-header">
+                <div class="craft-panel-text" data-localize="product_list_title">Product List</div>
+                <div class="search-group">
+                    <div class="search-wrapper">
+                        <img class="search-icon" src="assets/svg/search.svg" alt="Search"/>
+                        <input
+                                type="text"
+                                id="search-input"
+                                placeholder="Search..."
+                                class="search-input"
+                                data-localize-placeholder="search_placeholder"
+                        />
+                    </div>
+                </div>
+            </header>
+            <section class="craft-actions"></section>
+        </main>
     </div>
-  </header>
+</div>
 
-  <main>
-    <!-- ==================== HERO ==================== -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <!-- Background Image -->
-      <div class="absolute inset-0">
-        <img src="images/hero-bg.jpg" alt="" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-background/70"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-background/50 via-background/20 to-background"></div>
-      </div>
-
-      <!-- Grid Pattern -->
-      <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(#c49a6c 1px, transparent 1px), linear-gradient(90deg, #c49a6c 1px, transparent 1px); background-size: 60px 60px;"></div>
-
-      <!-- Content -->
-      <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
-        <div id="hero-content">
-          <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-6 fade-in">Performance-First Game Development</p>
-
-          <h1 class="font-mono text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight text-foreground fade-in" style="transition-delay: 200ms;">
-            DEEP<span class="text-primary">BOUND</span>
-          </h1>
-
-          <p class="mt-4 font-mono text-lg md:text-xl text-muted-foreground fade-in" style="transition-delay: 300ms;">
-            A 2D Modular Sandbox Engine & Game
-          </p>
-
-          <div class="mt-8 flex flex-wrap items-center justify-center gap-3 fade-in" style="transition-delay: 400ms;">
-            <span class="inline-flex items-center px-4 py-2 rounded-full border border-border bg-card/80 backdrop-blur-sm text-xs font-mono text-foreground shadow-sm">High-performance ECS Architecture</span>
-            <span class="inline-flex items-center px-4 py-2 rounded-full border border-border bg-card/80 backdrop-blur-sm text-xs font-mono text-foreground shadow-sm">Zero-allocation Memory Management</span>
-            <span class="inline-flex items-center px-4 py-2 rounded-full border border-border bg-card/80 backdrop-blur-sm text-xs font-mono text-foreground shadow-sm">Data-Oriented Design (DOD)</span>
-          </div>
-
-          <p class="mt-8 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed fade-in" style="transition-delay: 500ms;">
-            Built from the ground up with a custom C# engine core, DeepBound pushes the boundaries of what a 2D sandbox can achieve.
-          </p>
-
-          <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 fade-in" style="transition-delay: 700ms;">
-            <a href="#" class="group relative inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-xl font-mono text-sm font-semibold tracking-wider hover:bg-primary/90 transition-colors overflow-hidden">
-              <span class="absolute inset-0 bg-accent/10 animate-glow-pulse rounded-xl"></span>
-              <svg class="relative h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-              <span class="relative">Wishlist on Steam</span>
-            </a>
-            <a href="#projects" class="inline-flex items-center gap-2 border border-border bg-card/80 text-foreground px-8 py-3.5 rounded-xl font-mono text-sm font-semibold tracking-wider hover:border-primary/40 hover:text-primary transition-colors shadow-sm">
-              View Projects
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Scroll Indicator -->
-      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-        <svg class="h-6 w-6 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
-      </div>
-    </section>
-
-    <!-- ==================== PROJECTS ==================== -->
-    <section id="projects" class="relative py-24 lg:py-32">
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <!-- Section Header -->
-        <div class="text-center mb-16">
-          <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-4">Portfolio</p>
-          <h2 class="font-mono text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">PROJECTS</h2>
-          <p class="mt-4 text-muted-foreground max-w-xl mx-auto leading-relaxed">Crafted with performance in mind, every project is built to push technical boundaries.</p>
-        </div>
-
-        <!-- Project 1: DeepBound -->
-        <div class="mb-8 fade-in">
-          <div class="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-sm hover:shadow-md transition-shadow">
-            <div class="grid grid-cols-1 lg:grid-cols-2">
-              <div class="relative aspect-[16/10] lg:aspect-auto overflow-hidden">
-                <img src="images/deepbound.jpg" alt="DeepBound Engine & Game" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent to-card/30 lg:from-transparent lg:to-card"></div>
-              </div>
-              <div class="p-8 lg:p-12 flex flex-col justify-center">
-                <div class="flex items-center gap-3 mb-4">
-                  <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-semibold bg-primary/10 text-primary border border-primary/20">Featured</span>
-                  <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-semibold bg-secondary text-secondary-foreground border border-border">In Development</span>
-                </div>
-                <h3 class="font-mono text-2xl lg:text-3xl font-bold text-foreground mb-2">DeepBound</h3>
-                <p class="font-mono text-sm text-primary mb-4">2D Modular Sandbox Engine & Game</p>
-                <p class="text-muted-foreground leading-relaxed mb-6">A high-performance 2D modular sandbox engine built from scratch in C#. Featuring Entity Component System architecture, zero-allocation memory management, and Data-Oriented Design for maximum performance.</p>
-                <div class="flex flex-wrap gap-2 mb-8">
-                  <span class="px-3 py-1 rounded-md text-xs font-mono bg-secondary text-secondary-foreground border border-border">ECS Architecture</span>
-                  <span class="px-3 py-1 rounded-md text-xs font-mono bg-secondary text-secondary-foreground border border-border">Zero-alloc</span>
-                  <span class="px-3 py-1 rounded-md text-xs font-mono bg-secondary text-secondary-foreground border border-border">DOD</span>
-                  <span class="px-3 py-1 rounded-md text-xs font-mono bg-secondary text-secondary-foreground border border-border">Custom Engine</span>
-                  <span class="px-3 py-1 rounded-md text-xs font-mono bg-secondary text-secondary-foreground border border-border">C#</span>
-                </div>
-                <a href="#" class="inline-flex items-center gap-2 text-sm font-mono text-primary hover:gap-3 transition-all">
-                  Wishlist on Steam
-                  <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/></svg>
-                </a>
-              </div>
+<div class="craft-menu-overlay">
+    <div class="craft-menu">
+        <div class="craft-menu-content">
+            <img class="craft-icon" src="assets/images/drink-item.png"/>
+            <div class="craft-name">
+                <span class="craft-name-text" data-localize="craft_item_name">Coffee</span>
+                <hr class="line"/>
             </div>
-          </div>
-        </div>
-
-        <!-- Project 2: Shadow of Roles -->
-        <div class="fade-in">
-          <div class="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-sm hover:shadow-md transition-shadow">
-            <div class="grid grid-cols-1 lg:grid-cols-2">
-              <div class="relative aspect-[16/10] lg:aspect-auto overflow-hidden lg:order-2">
-                <img src="images/shadow-of-roles.jpg" alt="Shadow of Roles" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div class="absolute inset-0 bg-gradient-to-l from-transparent to-card/30 lg:from-transparent lg:to-card"></div>
-              </div>
-              <div class="p-8 lg:p-12 flex flex-col justify-center lg:order-1">
-                <div class="flex items-center gap-3 mb-4">
-                  <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-semibold bg-primary/10 text-primary border border-primary/20">Published</span>
-                  <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-semibold bg-secondary text-secondary-foreground border border-border">Google Play</span>
+            <div class="ingredients-list"></div>
+            <div class="count-selector">
+                <button class="count-button reduce-button">
+                    <img src="assets/svg/reduce.svg" alt="Reduce"/>
+                </button>
+                <div class="count-counter">
+                    <span class="count">1</span>
                 </div>
-                <h3 class="font-mono text-2xl lg:text-3xl font-bold text-foreground mb-2">Shadow of Roles</h3>
-                <p class="font-mono text-sm text-primary mb-4">Turn-Based Social Deduction RPG</p>
-                <p class="text-muted-foreground leading-relaxed mb-6">A turn-based social deduction RPG where trust is your greatest weapon and betrayal lurks in every shadow. Published on Google Play Store, Shadow of Roles blends strategic card play with hidden role mechanics.</p>
-                <div class="flex flex-wrap gap-2 mb-8">
-                  <span class="px-3 py-1 rounded-md text-xs font-mono bg-secondary text-secondary-foreground border border-border">Turn-Based</span>
-                  <span class="px-3 py-1 rounded-md text-xs font-mono bg-secondary text-secondary-foreground border border-border">Social Deduction</span>
-                  <span class="px-3 py-1 rounded-md text-xs font-mono bg-secondary text-secondary-foreground border border-border">RPG</span>
-                  <span class="px-3 py-1 rounded-md text-xs font-mono bg-secondary text-secondary-foreground border border-border">Mobile</span>
-                  <span class="px-3 py-1 rounded-md text-xs font-mono bg-secondary text-secondary-foreground border border-border">Multiplayer</span>
-                </div>
-                <a href="#" class="inline-flex items-center gap-2 text-sm font-mono text-primary hover:gap-3 transition-all">
-                  View on Google Play
-                  <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
-                </a>
-              </div>
+                <button class="count-button increase-button">
+                    <img src="assets/svg/increase.svg" alt="Increase"/>
+                </button>
             </div>
-          </div>
+            <button class="craft-button-action">
+                <span data-localize="craft_button_text">Craft</span>
+            </button>
         </div>
-      </div>
-    </section>
-
-    <!-- ==================== TECHNICAL DEEP DIVE ==================== -->
-    <section id="tech" class="relative py-24 lg:py-32 bg-secondary/40">
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-4">Engineering</p>
-          <h2 class="font-mono text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">TECHNICAL DEEP DIVE</h2>
-          <p class="mt-4 text-muted-foreground max-w-xl mx-auto leading-relaxed">Systems programming at its core. Every decision is driven by performance metrics and engineering excellence.</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
-          <!-- Card 1 -->
-          <div class="fade-in group relative bg-card border border-border rounded-2xl p-8 shadow-sm hover:border-primary/30 hover:shadow-md transition-all duration-700">
-            <div class="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-6 group-hover:bg-primary/15 transition-colors">
-              <svg class="h-6 w-6 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
-            </div>
-            <h3 class="font-mono text-lg font-bold text-foreground mb-3">Custom C# Engine Core</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">Handcrafted game engine optimized for raw performance. Built without unnecessary abstractions, every component is designed for speed.</p>
-            <div class="absolute bottom-0 right-0 w-20 h-20 opacity-[0.03]" style="background-image: linear-gradient(#c49a6c 1px, transparent 1px), linear-gradient(90deg, #c49a6c 1px, transparent 1px); background-size: 8px 8px;"></div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="fade-in group relative bg-card border border-border rounded-2xl p-8 shadow-sm hover:border-primary/30 hover:shadow-md transition-all duration-700" style="transition-delay: 120ms;">
-            <div class="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-6 group-hover:bg-primary/15 transition-colors">
-              <svg class="h-6 w-6 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="22" x2="2" y1="12" y2="12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><line x1="6" x2="6.01" y1="16" y2="16"/><line x1="10" x2="10.01" y1="16" y2="16"/></svg>
-            </div>
-            <h3 class="font-mono text-lg font-bold text-foreground mb-3">Hybrid Serialization</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">Fast save/load systems using a custom hybrid serialization approach. Minimizes I/O overhead while maintaining data integrity.</p>
-            <div class="absolute bottom-0 right-0 w-20 h-20 opacity-[0.03]" style="background-image: linear-gradient(#c49a6c 1px, transparent 1px), linear-gradient(90deg, #c49a6c 1px, transparent 1px); background-size: 8px 8px;"></div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="fade-in group relative bg-card border border-border rounded-2xl p-8 shadow-sm hover:border-primary/30 hover:shadow-md transition-all duration-700" style="transition-delay: 240ms;">
-            <div class="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-6 group-hover:bg-primary/15 transition-colors">
-              <svg class="h-6 w-6 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            </div>
-            <h3 class="font-mono text-lg font-bold text-foreground mb-3">SIMD & AVX Optimizations</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">Low-level performance tuning leveraging SIMD and AVX instruction sets for parallel data processing and computational efficiency.</p>
-            <div class="absolute bottom-0 right-0 w-20 h-20 opacity-[0.03]" style="background-image: linear-gradient(#c49a6c 1px, transparent 1px), linear-gradient(90deg, #c49a6c 1px, transparent 1px); background-size: 8px 8px;"></div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="fade-in group relative bg-card border border-border rounded-2xl p-8 shadow-sm hover:border-primary/30 hover:shadow-md transition-all duration-700" style="transition-delay: 360ms;">
-            <div class="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-6 group-hover:bg-primary/15 transition-colors">
-              <svg class="h-6 w-6 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19.439 7.85c-.049.322.059.648.289.878l1.568 1.568c.47.47.706 1.087.706 1.704s-.235 1.233-.706 1.704l-1.611 1.611a.98.98 0 0 1-.837.276c-.47-.07-.802-.48-.968-.925a2.501 2.501 0 1 0-3.214 3.214c.446.166.855.497.925.968a.979.979 0 0 1-.276.837l-1.61 1.61a2.404 2.404 0 0 1-1.705.707 2.402 2.402 0 0 1-1.704-.706l-1.568-1.568a1.026 1.026 0 0 0-.877-.29c-.493.074-.84.504-1.02.968a2.5 2.5 0 1 1-3.237-3.237c.464-.18.894-.527.967-1.02a1.026 1.026 0 0 0-.289-.877l-1.568-1.568A2.402 2.402 0 0 1 1.998 12c0-.617.236-1.234.706-1.704L4.315 8.685a.98.98 0 0 1 .837-.276c.47.07.802.48.968.925a2.501 2.501 0 1 0 3.214-3.214c-.446-.166-.855-.497-.925-.968a.979.979 0 0 1 .276-.837l1.61-1.61a2.404 2.404 0 0 1 1.705-.707c.617 0 1.234.236 1.704.706l1.568 1.568c.23.23.556.338.877.29.493-.074.84-.504 1.02-.968a2.5 2.5 0 1 1 3.237 3.237c-.464.18-.894.527-.967 1.02Z"/></svg>
-            </div>
-            <h3 class="font-mono text-lg font-bold text-foreground mb-3">Modular Modding API</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">Community-driven expansion through a modular modding API. Designed for extensibility, enabling players to create and share content.</p>
-            <div class="absolute bottom-0 right-0 w-20 h-20 opacity-[0.03]" style="background-image: linear-gradient(#c49a6c 1px, transparent 1px), linear-gradient(90deg, #c49a6c 1px, transparent 1px); background-size: 8px 8px;"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== ABOUT ==================== -->
-    <section id="about" class="relative py-24 lg:py-32">
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <!-- Image Side -->
-          <div class="relative slide-left">
-            <div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-border shadow-sm">
-              <img src="images/founder.jpg" alt="Founder of KankanGames" class="w-full h-full object-cover" />
-              <div class="absolute inset-0 bg-gradient-to-tr from-background/30 to-transparent"></div>
-            </div>
-            <div class="absolute -bottom-4 -right-4 w-24 h-24 border-2 border-primary/15 rounded-2xl -z-10"></div>
-            <div class="absolute -top-4 -left-4 w-16 h-16 border-2 border-accent/15 rounded-2xl -z-10"></div>
-          </div>
-
-          <!-- Content Side -->
-          <div class="slide-right">
-            <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-4">About the Founder</p>
-            <h2 class="font-mono text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-              PERFORMANCE-FIRST<span class="text-primary"> GAME DEV</span>
-            </h2>
-            <p class="mt-6 text-muted-foreground leading-relaxed">
-              KankanGames was founded by a Computer Science student at <span class="text-foreground font-medium">Bilkent University</span>, driven by a deep passion for performance-first game development and systems programming.
-            </p>
-            <p class="mt-4 text-muted-foreground leading-relaxed">
-              Every line of code is written with performance in mind. From custom engine architectures to low-level optimizations, the goal is always the same: build software that runs as fast as theoretically possible.
-            </p>
-
-            <!-- Key Points -->
-            <div class="mt-10 flex flex-col gap-5">
-              <div class="flex items-start gap-4 fade-in" style="transition-delay: 600ms;">
-                <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center">
-                  <svg class="h-5 w-5 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16c0 1 2.5 3 6 3s6-2 6-3v-3.5"/></svg>
-                </div>
-                <div>
-                  <p class="font-mono text-sm font-bold text-foreground">Bilkent University</p>
-                  <p class="text-sm text-muted-foreground mt-0.5">Computer Science student with focus on systems programming</p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4 fade-in" style="transition-delay: 750ms;">
-                <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center">
-                  <svg class="h-5 w-5 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
-                </div>
-                <div>
-                  <p class="font-mono text-sm font-bold text-foreground">Performance Obsessed</p>
-                  <p class="text-sm text-muted-foreground mt-0.5">Zero-allocation patterns, SIMD optimizations, data-oriented design</p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4 fade-in" style="transition-delay: 900ms;">
-                <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center">
-                  <svg class="h-5 w-5 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
-                </div>
-                <div>
-                  <p class="font-mono text-sm font-bold text-foreground">Systems Programmer</p>
-                  <p class="text-sm text-muted-foreground mt-0.5">Custom engines, low-level C# and C++, real-time systems</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== CONTACT ==================== -->
-    <section id="contact" class="relative py-24 lg:py-32 bg-secondary/40">
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center">
-          <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-4">Get in Touch</p>
-          <h2 class="font-mono text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-            LET'S BUILD<span class="text-primary"> SOMETHING</span> GREAT
-          </h2>
-          <p class="mt-6 text-muted-foreground leading-relaxed max-w-xl mx-auto">
-            Interested in collaboration, have a question about the engine, or just want to talk about game dev? Reach out through any of these channels.
-          </p>
-        </div>
-
-        <!-- Social Links Grid -->
-        <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-4xl mx-auto">
-          <a href="#" class="group flex flex-col items-center text-center p-8 bg-card border border-border rounded-2xl shadow-sm hover:border-primary/30 hover:shadow-md transition-all fade-in">
-            <div class="w-14 h-14 rounded-full bg-primary/10 border border-primary/15 flex items-center justify-center mb-4 group-hover:bg-primary/15 group-hover:scale-105 transition-all">
-              <svg class="h-6 w-6 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-            </div>
-            <h3 class="font-mono text-base font-bold text-foreground mb-1">GitHub</h3>
-            <p class="text-xs text-muted-foreground leading-relaxed">Open source projects & engine code</p>
-          </a>
-
-          <a href="#" class="group flex flex-col items-center text-center p-8 bg-card border border-border rounded-2xl shadow-sm hover:border-primary/30 hover:shadow-md transition-all fade-in" style="transition-delay: 100ms;">
-            <div class="w-14 h-14 rounded-full bg-primary/10 border border-primary/15 flex items-center justify-center mb-4 group-hover:bg-primary/15 group-hover:scale-105 transition-all">
-              <svg class="h-6 w-6 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-            </div>
-            <h3 class="font-mono text-base font-bold text-foreground mb-1">LinkedIn</h3>
-            <p class="text-xs text-muted-foreground leading-relaxed">Professional network & updates</p>
-          </a>
-
-          <a href="#" class="group flex flex-col items-center text-center p-8 bg-card border border-border rounded-2xl shadow-sm hover:border-primary/30 hover:shadow-md transition-all fade-in" style="transition-delay: 200ms;">
-            <div class="w-14 h-14 rounded-full bg-primary/10 border border-primary/15 flex items-center justify-center mb-4 group-hover:bg-primary/15 group-hover:scale-105 transition-all">
-              <svg class="h-6 w-6 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
-            </div>
-            <h3 class="font-mono text-base font-bold text-foreground mb-1">Twitter</h3>
-            <p class="text-xs text-muted-foreground leading-relaxed">Dev logs & game updates</p>
-          </a>
-
-          <a href="mailto:hello@kankangames.com" class="group flex flex-col items-center text-center p-8 bg-card border border-border rounded-2xl shadow-sm hover:border-primary/30 hover:shadow-md transition-all fade-in" style="transition-delay: 300ms;">
-            <div class="w-14 h-14 rounded-full bg-primary/10 border border-primary/15 flex items-center justify-center mb-4 group-hover:bg-primary/15 group-hover:scale-105 transition-all">
-              <svg class="h-6 w-6 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            </div>
-            <h3 class="font-mono text-base font-bold text-foreground mb-1">Email</h3>
-            <p class="text-xs text-muted-foreground leading-relaxed">Business inquiries & collaboration</p>
-          </a>
-        </div>
-
-        <!-- Contact Form -->
-        <div class="mt-16 max-w-2xl mx-auto">
-          <div class="bg-card border border-border rounded-2xl p-8 shadow-sm">
-            <h3 class="font-mono text-xl font-bold text-foreground mb-6 text-center">Send a Message</h3>
-            <form class="flex flex-col gap-5" onsubmit="event.preventDefault();">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label for="name" class="block text-xs font-mono text-muted-foreground uppercase tracking-wider mb-2">Name</label>
-                  <input id="name" type="text" placeholder="Your name" class="w-full bg-secondary/50 border border-border rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:bg-card transition-colors" />
-                </div>
-                <div>
-                  <label for="email" class="block text-xs font-mono text-muted-foreground uppercase tracking-wider mb-2">Email</label>
-                  <input id="email" type="email" placeholder="your@email.com" class="w-full bg-secondary/50 border border-border rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:bg-card transition-colors" />
-                </div>
-              </div>
-              <div>
-                <label for="subject" class="block text-xs font-mono text-muted-foreground uppercase tracking-wider mb-2">Subject</label>
-                <input id="subject" type="text" placeholder="What is this about?" class="w-full bg-secondary/50 border border-border rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:bg-card transition-colors" />
-              </div>
-              <div>
-                <label for="message" class="block text-xs font-mono text-muted-foreground uppercase tracking-wider mb-2">Message</label>
-                <textarea id="message" rows="5" placeholder="Your message..." class="w-full bg-secondary/50 border border-border rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:bg-card transition-colors resize-none"></textarea>
-              </div>
-              <button type="submit" class="w-full bg-primary text-primary-foreground px-6 py-3.5 rounded-xl font-mono text-sm font-semibold tracking-wider hover:bg-primary/90 transition-colors">Send Message</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ==================== FOOTER ==================== -->
-  <footer class="relative border-t border-border bg-card">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8 py-16">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        <!-- Brand -->
-        <div class="lg:col-span-2">
-          <a href="#" class="flex items-center gap-2.5 group">
-            <svg class="h-6 w-6 text-primary transition-transform group-hover:rotate-12" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1.09 0 2.04-.586 2.56-1.46l.82-1.38A2 2 0 0 1 10.1 15h3.8a2 2 0 0 1 1.72.98l.82 1.37A3.01 3.01 0 0 0 19 19a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg>
-            <span class="font-mono text-lg font-bold tracking-tight text-foreground">
-              Kankan<span class="text-primary">Games</span>
-            </span>
-          </a>
-          <p class="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs">Performance-first game development. Building high-performance engines and unforgettable gaming experiences.</p>
-          <div class="flex gap-3 mt-6">
-            <a href="#" class="w-9 h-9 rounded-xl bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all" aria-label="GitHub">
-              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-            </a>
-            <a href="#" class="w-9 h-9 rounded-xl bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all" aria-label="LinkedIn">
-              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-            <a href="#" class="w-9 h-9 rounded-xl bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all" aria-label="Twitter">
-              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Projects Column -->
-        <div>
-          <h4 class="font-mono text-sm font-semibold text-foreground uppercase tracking-wider mb-4">Projects</h4>
-          <ul class="flex flex-col gap-2.5">
-            <li><a href="#projects" class="text-sm text-muted-foreground hover:text-primary transition-colors">DeepBound Engine</a></li>
-            <li><a href="#projects" class="text-sm text-muted-foreground hover:text-primary transition-colors">Shadow of Roles</a></li>
-          </ul>
-        </div>
-
-        <!-- Company Column -->
-        <div>
-          <h4 class="font-mono text-sm font-semibold text-foreground uppercase tracking-wider mb-4">Company</h4>
-          <ul class="flex flex-col gap-2.5">
-            <li><a href="#about" class="text-sm text-muted-foreground hover:text-primary transition-colors">About</a></li>
-            <li><a href="#" class="text-sm text-muted-foreground hover:text-primary transition-colors">Technical Blog</a></li>
-            <li><a href="#contact" class="text-sm text-muted-foreground hover:text-primary transition-colors">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Bottom Bar -->
-      <div class="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p class="text-xs text-muted-foreground">Copyright 2026 KankanGames. All rights reserved.</p>
-        <div class="flex gap-6">
-          <a href="#" class="text-xs text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
-          <a href="#" class="text-xs text-muted-foreground hover:text-primary transition-colors">Terms of Service</a>
-        </div>
-      </div>
     </div>
-  </footer>
+</div>
 
-  <!-- ==================== SCRIPTS ==================== -->
-  <script>
-    // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('bg-background/95', 'backdrop-blur-xl', 'border-b', 'border-border', 'shadow-sm');
-        navbar.classList.remove('bg-transparent');
-      } else {
-        navbar.classList.remove('bg-background/95', 'backdrop-blur-xl', 'border-b', 'border-border', 'shadow-sm');
-        navbar.classList.add('bg-transparent');
-      }
-    });
+<div class="drink-craft">
+    <div class="overlap-group">
+        <img class="craft-item main" id="empty" src="assets/images/empty-shaker.png"/>
+        <img class="craft-item small" id="item1" style="top: 422px; left: 318px;" src="assets/images/drink-item.png"/>
+        <img class="craft-item small" id="item2" style="top: 274px; left: 83px;" src="assets/images/drink-item.png"/>
+        <img class="craft-item small" id="item3" style="top: 392px; left: 158px;" src="assets/images/drink-item.png"/>
+        <img class="craft-item main" id="full" src="assets/images/full-shaker.png"/>
+    </div>
+</div>
 
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = document.getElementById('menu-icon');
-    const closeIcon = document.getElementById('close-icon');
+<div class="dessert-craft">
+    <div class="overlap-group-wrapper">
+        <div class="overlap-group2">
+            <div class="cake-craft-item empty" id="empty-plate"></div>
+            <img class="cake-craft-item full" id="full-cake" src="assets/images/full-cake.png"/>
+            <img class="cake-craft-item small" id="item1" src="assets/images/cake-item.png"/>
+        </div>
+    </div>
+</div>
 
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      menuIcon.classList.toggle('hidden');
-      closeIcon.classList.toggle('hidden');
-    });
+<div class="food-craft">
+    <div class="overlap-group-wrapper">
+        <div class="overlap-group3">
+            <img class="food-pan" id="food-pan" src="assets/images/food-pan.png"/>
+            <img class="food-spoon" id="food-spoon" src="assets/images/food-spoon.png"/>
+        </div>
+    </div>
+</div>
 
-    // Close mobile menu on link click
-    document.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        menuIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-      });
-    });
+<div class="sandwich-craft">
+    <div class="overlap-group-wrapper">
+        <div class="overlap-group4">
+            <img class="sandwich-bread-top" id="sandwich-bread-top" src="assets/images/sandwich-bread-top.png"/>
+            <img class="sandwich-bread-bottom" id="sandwich-bread-bottom"
+                 src="assets/images/sandwich-bread-bottom.png"/>
+            <img class="sandwich-lettuce" id="sandwich-lettuce" src="assets/images/sandwich-lettuce.png"/>
+            <img class="sandwich-tomato" id="sandwich-tomato" src="assets/images/sandwich-tomato.png"/>
+            <img class="sandwich-cheese" id="sandwich-cheese" src="assets/images/sandwich-cheese.png"/>
+        </div>
+    </div>
+</div>
 
-    // Intersection Observer for scroll animations
-    const observerOptions = { threshold: 0.12 };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
+<div class="shake-craft">
+    <div class="overlap-group-wrapper">
+        <div class="overlap-group5">
+            <img class="shake-cream" id="shake-cream" src="assets/images/shake-cream.png"/>
+            <img class="shake-empty" id="shake-empty" src="assets/images/shake-empty.png"/>
+            <img class="shake-full" id="shake-full" src="assets/images/shake-full.png"/>
+        </div>
+    </div>
+</div>
 
-    document.querySelectorAll('.fade-in, .slide-left, .slide-right').forEach(el => {
-      observer.observe(el);
-    });
+<div class="pizza-craft">
+    <div class="overlap-group-wrapper">
+        <div class="overlap-group6">
+            <img class="pizza-full" id="pizza-full" src="assets/images/pizza-full.png"/>
+            <img class="pizza-slicer" id="pizza-slicer" src="assets/images/pizza-slicer.png"/>
+            <img class="pizza-cut-layer" id="cut-layer-1" src="assets/images/pizza-sliced.png"/>
+            <img class="pizza-cut-layer" id="cut-layer-2" src="assets/images/pizza-sliced.png"/>
+            <img class="pizza-cut-layer" id="cut-layer-3" src="assets/images/pizza-sliced.png"/>
+            <img class="pizza-cut-layer" id="cut-layer-4" src="assets/images/pizza-sliced.png"/>
+            <div id="debug-point"></div>
+        </div>
+    </div>
+</div>
 
-    // Trigger hero animations on load
-    window.addEventListener('load', () => {
-      document.querySelectorAll('#hero-content .fade-in').forEach(el => {
-        el.classList.add('visible');
-      });
-    });
-  </script>
+<div class="coffee-craft">
+    <div class="overlap-group-wrapper">
+        <div class="overlap-group7">
+            <img class="coffee-full" id="coffee-full" src="assets/images/coffee-full.png"/>
+            <img class="coffee-empty" id="coffee-empty" src="assets/images/coffee-empty.png"/>
+            <img class="coffee-pot" id="coffee-pot" src="assets/images/coffee-pot.png"/>
+            <div id="coffee-debug-point"></div>
+        </div>
+    </div>
+</div>
+
+<div class="muffin-craft">
+    <div class="overlap-group-wrapper">
+        <div class="overlap-group8">
+            <img class="muffin-raw" id="muffin-raw" src="assets/images/muffin-raw.png"/>
+            <img class="muffin-furnace" id="muffin-furnace" src="assets/images/muffin-furnace.png"/>
+            <img class="muffin-furnace-closed" id="muffin-furnace-closed"
+                 src="assets/images/muffin-furnace-closed.png"/>
+            <img class="muffin-baked" id="muffin-baked" src="assets/images/muffin-baked.png"/>
+            <img class="muffin-furnace-baked" id="muffin-furnace-baked" src="assets/images/muffin-furnace-baked.png"/>
+        </div>
+    </div>
+</div>
+
+<div class="ice-cream-craft">
+    <div class="overlap-group-wrapper">
+        <div class="overlap-group9">
+            <img class="ice-cream-machine" id="ice-cream-machine" src="assets/images/iceCream-Machine.png"/>
+            <img class="ice-cream-empty" id="ice-cream-empty" src="assets/images/iceCream-empty.png"/>
+            <img class="ice-cream-full" id="ice-cream-full" src="assets/images/iceCream-full.png"/>
+        </div>
+    </div>
+</div>
+
+<div class="burger-craft">
+    <div class="overlap-group-wrapper">
+        <div class="overlap-group10">
+            <img class="burger-grill" id="burger-grill" src="assets/images/burger-grill.png"/>
+            <img class="burger-meat-raw" id="burger-meat-raw" src="assets/images/burger-meat-raw.png"/>
+            <img class="burger-meat-baked" id="burger-meat-baked" src="assets/images/burger-meat-baked.png"/>
+            <img class="burger-bun-bottom" id="burger-bun-bottom" src="assets/images/burger-bun-bottom.png"/>
+            <img class="burger-item burger-cheese" id="burger-cheese" src="assets/images/burger-cheese.png"/>
+            <img class="burger-item burger-lettuce" id="burger-lettuce" src="assets/images/burger-lettuce.png"/>
+            <img class="burger-item burger-tomato" id="burger-tomato" src="assets/images/burger-tomato.png"/>
+            <img class="burger-item burger-bun-top" id="burger-bun-top" src="assets/images/burger-bun-top.png"/>
+        </div>
+    </div>
+</div>
+
+<div class="fries-craft">
+    <div class="overlap-group-wrapper">
+        <div class="overlap-group11">
+            <img class="fryer-machine" id="fryer-machine1" src="assets/images/fries-fryer1.png"/>
+            <img class="fries-basket" id="fries-raw1" src="assets/images/fries-raw1.png"/>
+            <img class="fries-basket" id="fries-raw2" src="assets/images/fries-raw2.png"/>
+            <img class="fries-basket" id="fries-baked1" src="assets/images/fries-baked1.png"/>
+            <img class="fries-basket" id="fries-baked2" src="assets/images/fries-baked2.png"/>
+            <img class="fryer-machine" id="fryer-machine2" src="assets/images/fries-fryer2.png"/>
+        </div>
+    </div>
+</div>
+
+<div id="notify" class="notify">
+    <button class="close-btn" aria-label="Close notification">×</button>
+    <div class="notify-message" data-localize="notification_message">Bildirim mesajınız burada olacak</div>
+</div>
+
+<script type="module" src="script.js"></script>
+<script type="module" src="locales.js"></script>
 </body>
 </html>

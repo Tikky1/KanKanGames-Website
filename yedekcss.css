@@ -1,0 +1,1041 @@
+:root {
+    --primary-color: #0d1b2a;
+    --secondary-color: #1b263b;
+    --card-bg-color: #354a63;
+    --button-bg-color: #496382;
+    --navbutton-bg-color: #223041;
+    --navbutton2-bg-color: #2f4158;
+    --text-color: #b1c2cd;
+    --exit-button-bg-color: #412222;
+    --exit-button2-bg-color: rgb(88, 47, 47);
+    --exit-button-text-color: #cdb1b1;
+    --job-gradient: linear-gradient(55deg, rgba(80, 122, 172, 1) 0%, rgba(54, 87, 121, 1) 100%);
+    --font-family-montserrat: "Montserrat", Helvetica;
+    --border-radius-small: 0.26vw;
+    --border-radius-medium: 0.52vw;
+    --border-radius-large: 0.78vw;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family-montserrat);
+    color: var(--text-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.craft {
+    display: none;
+    width: 57.34vw;
+    height: 62.31vh;
+    background-color: var(--primary-color);
+    border-radius: 1.04vw;
+    box-shadow: 0 0.93vh 1.85vh rgba(0, 0, 0, 0.2);
+    padding: 1.04vw;
+}
+
+.craft .container {
+    display: flex;
+    gap: 1.04vw;
+    height: 100%;
+}
+
+.craft .card {
+    background-color: var(--card-bg-color);
+    border-radius: var(--border-radius-medium);
+    padding: 0.78vw;
+    box-shadow: 0 0.37vh 0.56vh rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.craft .navbar {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius-large);
+    padding: 1.04vw;
+    gap: 1.04vw;
+    width: 13.02vw;
+    flex-shrink: 0;
+}
+
+.craft .player-info {
+    background-color: var(--navbutton-bg-color);
+    padding: 1.04vw;
+    border-radius: var(--border-radius-medium);
+    box-shadow: none;
+}
+
+.craft .player-photo {
+    width: 3.39vw;
+    height: 3.39vw;
+    background-color: #d9d9d9;
+    border-radius: 50%;
+    margin-bottom: 0.93vh;
+    border: 0.10vw solid rgba(80, 122, 172, 1);
+}
+
+.craft .welcome-group .welcome-text {
+    font-size: 0.68vw;
+    font-weight: 600;
+    color: #486584;
+}
+
+.craft .player-name {
+    font-size: 1.04vw;
+    font-weight: 500;
+    color: #ffffff;
+    margin-top: 0.46vh;
+    margin-bottom: 0;
+}
+
+.craft .job-group {
+    margin-top: 1.39vh;
+}
+
+.craft .player-job {
+    padding: 0.74vh 0.83vw;
+    border-radius: var(--border-radius-medium);
+    background: var(--job-gradient);
+    font-weight: 700;
+    color: #131b2a;
+}
+
+.craft .navigation-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.93vh;
+}
+
+.craft .nav-button {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 0.78vw;
+    padding: 0.93vh 1.04vw;
+    background-color: var(--navbutton-bg-color);
+    border-radius: var(--border-radius-medium);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.craft .nav-button:hover {
+    background-color: var(--navbutton2-bg-color);
+}
+
+.craft .exit-button:hover {
+    background-color: var(--exit-button2-bg-color);
+}
+
+.craft .nav-button .icon {
+    width: 1.56vw;
+    height: 1.56vw;
+}
+
+.craft .exit-button {
+    background-color: var(--exit-button-bg-color);
+    color: var(--exit-button-text-color);
+    margin-top: auto;
+}
+
+.craft .exit-button .icon {
+    width: 1.30vw;
+    height: 1.30vw;
+}
+
+.craft .main-panel {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius-medium);
+    padding: 1.04vw;
+    flex-grow: 1;
+}
+
+.craft .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.85vh;
+}
+
+.craft .craft-panel-text {
+    font-size: 1.04vw;
+    font-weight: 500;
+}
+
+.craft .search-group {
+    display: flex;
+    align-items: center;
+}
+
+.craft .search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.craft .search-icon {
+    position: absolute;
+    left: 0.63vw;
+    width: 1.04vw;
+    height: 1.04vw;
+    pointer-events: none;
+}
+
+.craft .search-input {
+    background-color: #23354b;
+    border: none;
+    border-radius: var(--border-radius-medium);
+    color: var(--text-color);
+    padding: 0.93vh 0.52vw 0.93vh 1.98vw;
+    font-family: var(--font-family-montserrat);
+    font-size: 0.73vw;
+    width: 10.42vw;
+    outline: none;
+}
+
+.craft .craft-actions {
+    display: flex;
+    gap: 2.08vw;
+    flex-wrap: wrap;
+    max-height: 55.56vh;
+    overflow-y: auto;
+    padding-right: 0.52vw;
+}
+
+.craft .craft-actions::-webkit-scrollbar {
+    width: 0.42vw;
+}
+
+.craft .craft-actions::-webkit-scrollbar-track {
+    background: var(--secondary-color);
+    border-radius: var(--border-radius-small);
+}
+
+.craft .craft-actions::-webkit-scrollbar-thumb {
+    background-color: var(--button-bg-color);
+    border-radius: var(--border-radius-small);
+    border: 0.10vw solid var(--secondary-color);
+}
+
+.craft .craft-actions::-webkit-scrollbar-thumb:hover {
+    background-color: #5c7490;
+}
+
+
+.craft .craft-item {
+    width: 7.81vw;
+    height: 14.81vh;
+    padding: 0.93vh;
+}
+
+.craft .craft-item .craft-icon {
+    width: 2.60vw;
+    height: 2.60vw;
+    margin-bottom: 0.93vh;
+}
+
+.craft .craft-item .craft-name {
+    font-size: 0.73vw;
+    font-weight: 500;
+    margin-bottom: 0.93vh;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.craft .craft-button {
+    width: 5.21vw;
+    height: 2.78vh;
+    background-color: var(--button-bg-color);
+    font-family: var(--font-family-montserrat);
+    color: var(--text-color);
+    font-size: 0.78vw;
+    font-weight: 500;
+    border-radius: var(--border-radius-small);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.craft .craft-button:hover {
+    background-color: #5c7490;
+}
+
+.craft .nav-button.active {
+    background-color: var(--navbutton2-bg-color);
+}
+
+.craft-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.craft-menu-overlay .craft-menu {
+    width: 13.02vw;
+    height: 29.63vh;
+    background-color: var(--navbutton-bg-color);
+    border-radius: var(--border-radius-medium);
+    box-shadow: 0 0.37vh 0.93vh rgba(0, 0, 0, 0.3);
+    padding: 1.04vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.39vh;
+}
+
+.craft-menu-overlay .craft-menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.39vh;
+    width: 100%;
+}
+
+.craft-menu-overlay .craft-menu .craft-icon {
+    width: 2.71vw;
+    height: 2.71vw;
+}
+
+.craft-menu-overlay .craft-menu .craft-name {
+    text-align: center;
+    margin-bottom: 0.93vh;
+}
+
+.craft-menu-overlay .craft-menu .craft-name-text {
+    font-size: 1.04vw;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.craft-menu-overlay .craft-menu .line {
+    width: 3.80vw;
+    height: 0.09vh;
+    background-color: var(--text-color);
+    border: none;
+    margin-top: 0.46vh;
+}
+
+.craft-menu-overlay .ingredients-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.74vh;
+    align-self: flex-start;
+    margin-left: 1.04vw;
+
+    max-height: 6.48vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--button-bg-color) var(--secondary-color);
+    padding-right: 0.52vw;
+}
+
+.craft-menu-overlay .ingredients-list::-webkit-scrollbar {
+    width: 0.31vw;
+}
+
+.craft-menu-overlay .ingredients-list::-webkit-scrollbar-track {
+    background: var(--secondary-color);
+    border-radius: var(--border-radius-small);
+}
+
+.craft-menu-overlay .ingredients-list::-webkit-scrollbar-thumb {
+    background-color: var(--button-bg-color);
+    border-radius: var(--border-radius-small);
+    border: 0.10vw solid var(--secondary-color);
+}
+
+.craft-menu-overlay .ingredients-list::-webkit-scrollbar-thumb:hover {
+    background-color: #5c7490;
+}
+
+.craft-menu-overlay .ingredients-list::-webkit-scrollbar-button {
+    display: none;
+    height: 0;
+    width: 0;
+    background: none;
+    margin: 0;
+    padding: 0;
+}
+
+.craft-menu-overlay .ingredient-item {
+    display: flex;
+    align-items: center;
+    gap: 0.42vw;
+}
+
+.craft-menu-overlay .ingredient-item .ingredient-icon {
+    width: 0.83vw;
+    height: 0.83vw;
+}
+
+.craft-menu-overlay .ingredient-item .ingredient-text {
+    font-size: 0.63vw;
+    color: #ffffff;
+    white-space: nowrap;
+    max-width: 8.33vw;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.craft-menu-overlay .count-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+}
+
+.craft-menu-overlay .count-button {
+    all: unset;
+    box-sizing: border-box;
+    width: 1.82vw;
+    height: 2.78vh;
+    background-color: var(--card-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.craft-menu-overlay .count-button img {
+    width: 0.78vw;
+    height: 0.78vw;
+}
+
+.craft-menu-overlay .count-counter {
+    width: calc(100% - 3.64vw);
+    height: 2.78vh;
+    background-color: var(--navbutton-bg-color);
+    border: 0.10vw solid var(--card-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.craft-menu-overlay .count-selector .count {
+    font-size: 0.78vw;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.craft-menu-overlay .craft-button-action {
+    all: unset;
+    box-sizing: border-box;
+    width: 10.94vw;
+    height: 2.31vh;
+    background-color: var(--card-bg-color);
+    border-radius: var(--border-radius-small);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.78vw;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.drink-craft {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-image: url('assets/images/craft-background.png');
+    background-size: cover;
+}
+
+.drink-craft .overlap-group {
+    position: relative;
+    width: 33.07vw;
+    height: 58.80vh;
+}
+
+.drink-craft .craft-item {
+    position: absolute;
+    object-fit: cover;
+}
+
+.drink-craft .craft-item.main {
+    position: absolute;
+    width: 18.23vw;
+    height: 32.41vh;
+    top: 9.26vh;
+    left: 15.63vw;
+    z-index: 1;
+}
+
+.drink-craft .craft-item.small {
+    cursor: grab;
+    width: 7.81vw;
+    height: 13.89vh;
+    z-index: 2;
+}
+
+#full {
+    display: none;
+}
+
+#empty {
+    user-select: none;
+    display: block;
+}
+
+@keyframes rotate-pour {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(25deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.drink-craft .craft-item.rotate {
+    animation: rotate-pour 2s ease-in-out;
+    transition: transform 0.3s;
+    pointer-events: none;
+}
+
+
+.drink-craft .craft-item.disappear {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    pointer-events: none;
+}
+
+.dessert-craft {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-image: url('assets/images/craft-background.png');
+    background-size: cover;
+}
+
+.dessert-craft .overlap-group-wrapper {
+    width: 33.07vw;
+    height: 58.80vh;
+}
+
+.dessert-craft .overlap-group2 {
+    position: relative;
+}
+
+.dessert-craft .cake-craft-item {
+    position: absolute;
+    object-fit: cover;
+}
+
+.dessert-craft .cake-craft-item.empty {
+    width: 18.23vw;
+    height: 32.41vh;
+    top: 17.13vh;
+    left: 10.26vw;
+    background-image: url("assets/images/empty-cake.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.dessert-craft .cake-craft-item.full {
+    width: 18.23vw;
+    height: 32.41vh;
+    top: 17.13vh;
+    left: 10.26vw;
+    display: none;
+}
+
+.dessert-craft .cake-craft-item.small {
+    position: absolute;
+    width: 7.81vw;
+    height: 13.89vh;
+    cursor: grab;
+    top: 44.44vh;
+    left: 6.25vw;
+}
+
+.food-craft {
+    background-color: transparent;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-image: url('assets/images/craft-background.png');
+    background-size: cover;
+}
+
+.food-craft .overlap-group-wrapper {
+    width: 33.07vw;
+    height: 58.80vh;
+}
+
+.food-craft .overlap-group3 {
+    position: relative;
+    width: 13.02vw;
+    height: 23.43vh;
+    top: 11.57vh;
+    left: 9.17vw;
+}
+
+.food-craft .food-pan {
+    width: 20.83vw;
+    height: 37.04vh;
+    top: 0.28vh;
+    left: 0;
+    position: absolute;
+    object-fit: cover;
+}
+
+.food-craft .food-spoon {
+    width: 9.11vw;
+    height: 16.20vh;
+    top: 0;
+    left: 5.63vw;
+    position: absolute;
+    object-fit: cover;
+}
+
+.sandwich-craft {
+    background-color: transparent;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-image: url('assets/images/craft-background.png');
+    background-size: cover;
+}
+
+.sandwich-craft .overlap-group-wrapper {
+    width: 33.07vw;
+    height: 58.80vh;
+}
+
+.sandwich-craft .overlap-group4 {
+    position: relative;
+    width: 26vw;
+    height: 30vh;
+    top: -3vh;
+    left: 3.5vw;
+}
+
+.sandwich-craft .sandwich-bread-bottom {
+    width: 25vw;
+    height: 25vh;
+    position: absolute;
+    object-fit: contain;
+    cursor: grab;
+    transition: none;
+    user-select: none;
+    z-index: 1;
+}
+
+.sandwich-craft .sandwich-lettuce {
+    width: 25vw;
+    height: 25vh;
+    position: absolute;
+    object-fit: contain;
+    cursor: grab;
+    transition: none;
+    user-select: none;
+    z-index: 2;
+}
+
+.sandwich-craft .sandwich-tomato {
+    width: 25vw;
+    height: 25vh;
+    position: absolute;
+    object-fit: contain;
+    cursor: grab;
+    transition: none;
+    user-select: none;
+    z-index: 3;
+}
+
+.sandwich-craft .sandwich-cheese {
+    width: 25vw;
+    height: 25vh;
+    position: absolute;
+    object-fit: contain;
+    cursor: grab;
+    transition: none;
+    user-select: none;
+    z-index: 4;
+}
+
+.sandwich-craft .sandwich-bread-top {
+    width: 25vw;
+    height: 25vh;
+    position: absolute;
+    object-fit: contain;
+    cursor: grab;
+    transition: none;
+    user-select: none;
+    z-index: 5;
+}
+
+.sandwich-craft .sandwich-plate-area {
+    width: 25vw;
+    height: 5vh;
+    position: absolute;
+    bottom: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.shake-craft {
+    background-color: transparent;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-image: url('assets/images/craft-background.png');
+    background-size: cover;
+    z-index: 100;
+}
+
+.shake-craft .overlap-group-wrapper {
+    width: 33.07vw;
+    height: 58.80vh;
+    position: relative;
+}
+
+.shake-craft .overlap-group5 {
+    position: relative;
+    width: 26vw;
+    height: 30vh;
+    top: -3vh;
+    left: 3.5vw;
+}
+
+.shake-craft .shake-cream {
+    width: 20vw;
+    height: 20vh;
+    position: absolute;
+    top: 5vh;
+    left: 16vw;
+    object-fit: contain;
+    cursor: grab;
+    transition: none;
+    user-select: none;
+    z-index: 20;
+    transform: rotate(-150deg);
+}
+
+.shake-craft .shake-cream:active {
+    cursor: grabbing;
+}
+
+.shake-craft .shake-empty {
+    display: none;
+    width: 35vw;
+    height: 35vh;
+    position: absolute;
+    top: 25vh;
+    left: 0vw;
+    object-fit: contain;
+    transition: none;
+    user-select: none;
+    z-index: 10;
+}
+
+.shake-craft .shake-full {
+    display: none;
+    width: 35vw;
+    height: 35vh;
+    position: absolute;
+    top: 25vh;
+    left: 0vw;
+    object-fit: contain;
+    cursor: default;
+    transition: none;
+    user-select: none;
+    z-index: 11;
+}
+
+.notify {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    min-width: 16.67vw;
+    max-width: 90vw;
+    background: linear-gradient(135deg, #2c3350, #343e5e);
+    border-radius: 0.63vw;
+    padding: 2.22vh 1.88vw;
+    box-shadow: 0 0.74vh 2.22vh rgba(0, 0, 0, 0.4);
+    color: #ecf0f1;
+    font-family: "Montserrat", Helvetica, sans-serif;
+    font-size: 0.94vw;
+    z-index: 2001;
+    user-select: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.notify.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.notify .close-btn {
+    position: absolute;
+    top: 1.30vh;
+    right: 0.73vw;
+    background: transparent;
+    border: none;
+    color: #e74c3c;
+    font-size: 1.46vw;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    user-select: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+    filter: drop-shadow(0 0 0.05vw rgba(0, 0, 0, 0.6));
+}
+
+.notify .close-btn:hover {
+    color: #c0392b;
+    transform: rotate(90deg);
+}
+
+.notify-message {
+    text-align: center;
+    margin-top: 0.56vh;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-shadow: 0 0 0.31vw rgba(236, 240, 241, 0.6);
+}
+
+.pizza-craft {
+    background-color: transparent;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-image: url('assets/images/craft-background.png');
+    background-size: cover;
+    z-index: 100;
+}
+
+.pizza-craft .overlap-group-wrapper {
+    width: 33.07vw;
+    height: 58.80vh;
+    position: relative;
+}
+
+.pizza-craft .overlap-group6 {
+    position: relative;
+    width: 30vw;
+    height: 30vh;
+    top: 10vh;
+    left: 1.5vw;
+}
+
+.pizza-craft #pizza-full {
+    position: absolute;
+    width: 25vw;
+    height: 25vw;
+    top: 0;
+    left: 2.5vw;
+    object-fit: contain;
+    user-select: none;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.pizza-craft .pizza-cut-layer {
+    position: absolute;
+    width: 25vw;
+    height: 25vw;
+    top: 0;
+    left: 2.5vw;
+    object-fit: contain;
+    user-select: none;
+    pointer-events: none;
+    background-color: transparent;
+    z-index: 10;
+    opacity: 1;
+    --progress: 0%;
+    -webkit-mask-image: linear-gradient(to bottom, white var(--progress), transparent calc(var(--progress) + 15%));
+    mask-image: linear-gradient(to bottom, white var(--progress), transparent calc(var(--progress) + 15%));
+}
+
+#cut-layer-1 {
+    clip-path: polygon(11.75vw 0, 13.25vw 0, 13.25vw 25vw, 11.75vw 25vw);
+}
+
+#cut-layer-2 {
+    clip-path: polygon(0vw 11vw, 25vw 11vw, 25vw 12.5vw, 0vw 12.5vw);
+    -webkit-mask-image: linear-gradient(to right, white var(--progress), transparent calc(var(--progress) + 15%));
+    mask-image: linear-gradient(to right, white var(--progress), transparent calc(var(--progress) + 15%));
+}
+
+#cut-layer-3 {
+    clip-path: polygon(0vw 3.5vw, 1.5vw 3.5vw, 27vw 21.5vw, 25.5vw 21.5vw);
+    -webkit-mask-image: linear-gradient(135deg, white var(--progress), transparent calc(var(--progress) + 15%));
+    mask-image: linear-gradient(135deg, white var(--progress), transparent calc(var(--progress) + 15%));
+}
+
+#cut-layer-4 {
+    clip-path: polygon(23.5vw 4vw, 25.5vw 4vw, 2vw 20vw, 0vw 20vw);
+    -webkit-mask-image: linear-gradient(225deg, white var(--progress), transparent calc(var(--progress) + 15%));
+    mask-image: linear-gradient(225deg, white var(--progress), transparent calc(var(--progress) + 15%));
+}
+
+.pizza-craft .pizza-slicer {
+    position: absolute;
+    width: 8vw;
+    height: 8vw;
+    top: 10vw;
+    left: 26vw;
+    object-fit: contain;
+    cursor: grab;
+    z-index: 100;
+    transition: none;
+}
+
+.pizza-craft .pizza-slicer:active {
+    cursor: grabbing;
+    transform: scale(0.9);
+}
+
+#debug-point {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border: 2px solid white;
+    border-radius: 50%;
+    z-index: 200;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+
+.coffee-craft {
+    background-color: transparent;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-image: url('assets/images/craft-background.png');
+    background-size: cover;
+    z-index: 100;
+}
+
+.coffee-craft .overlap-group-wrapper {
+    width: 30vw;
+    height: 30vw;
+    position: relative;
+}
+
+.coffee-craft .overlap-group7 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- GÖRSELLER --- */
+.coffee-craft #coffee-empty {
+    position: absolute;
+    width: 20vw;
+    height: 20vw;
+    top: 5vw;
+    left: 5vw;
+    object-fit: contain;
+    user-select: none;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.coffee-craft #coffee-full {
+    position: absolute;
+    width: 20vw;
+    height: 20vw;
+    top: 5vw;
+    left: 5vw;
+    object-fit: contain;
+    user-select: none;
+    pointer-events: none;
+    z-index: 6;
+
+    opacity: 0; /* Başlangıçta görünmez */
+    transition: opacity 0.1s linear; /* Yumuşak geçiş */
+}
+
+.coffee-craft #coffee-pot {
+    position: absolute;
+    width: 12vw;
+    height: 12vw;
+    top: 0vw;
+    left: 20vw;
+    object-fit: contain;
+    cursor: grab;
+    z-index: 100;
+    transition: transform 0.2s ease;
+    transform-origin: top left;
+}
+
+.coffee-craft #coffee-pot:active {
+    cursor: grabbing;
+    transform: scale(0.95);
+}
+
+@keyframes pourShake {
+    0% { transform: rotate(-25deg) translate(0, 0); }
+    50% { transform: rotate(-25deg) translate(1px, 1px); }
+    100% { transform: rotate(-25deg) translate(0, 0); }
+}
+
+.pouring {
+    animation: pourShake 0.2s infinite;
+}
+.coffee-craft #coffee-debug-point {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border: 2px solid white;
+    border-radius: 50%;
+    z-index: 999; /* En üstte görünsün */
+    pointer-events: none; /* Tıklamayı engellemesin */
+    display: none; /* Sadece potu tutunca görünsün */
+    transform: translate(-50%, -50%); /* Tam ortalasın */
+}
+
+.coffee-craft #coffee-pot.grabbed {
+    transform: rotate(-25deg);
+}
