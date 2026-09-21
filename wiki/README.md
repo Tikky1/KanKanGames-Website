@@ -2,7 +2,7 @@
 
 This is the home for community and reference documentation on **Deepbound**, a 2D survival/crafting game from KanKanGames.
 
-> 🚧 This wiki is a work in progress. Pages are placeholders and will be filled in with real content soon.
+> ⚠️ This wiki was written for v{{version}}. If you are using a newer version, some information or mechanics may no longer be accurate or compatible.
 
 ## What's here
 
