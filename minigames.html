@@ -10,10 +10,11 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/theme.css" />
   <script>
     tailwind.config = {
       theme: {
@@ -21,6 +22,7 @@
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
             mono: ['Space Grotesk', 'monospace'],
+            pixel: ['Silkscreen', 'monospace'],
           },
           colors: {
             background: '#faf6f1',
@@ -80,7 +82,7 @@
 
       <div class="relative z-10 text-center px-6 max-w-3xl mx-auto animate-fade-up">
         <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-4">Free To Play</p>
-        <h1 class="font-mono text-4xl md:text-6xl font-bold tracking-tight text-foreground">
+        <h1 class="font-pixel text-3xl md:text-5xl font-bold tracking-tight text-foreground">
           MINI<span class="text-primary">GAMES</span>
         </h1>
         <p class="mt-4 text-muted-foreground leading-relaxed">

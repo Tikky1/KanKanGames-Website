@@ -1,0 +1,5 @@
+- [Home](/)
+- [Getting Started](getting-started.md)
+- [Mechanics](mechanics.md)
+- [Crafting](crafting.md)
+- [Items](items.md)

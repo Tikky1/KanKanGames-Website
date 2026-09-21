@@ -74,16 +74,20 @@ All external links are stored in one file: `data/links.json`. Edit it and push �
 }
 ```
 
-The site fetches this on page load. Empty strings (`""`) leave the link as `#`. When `projects.deepbound.steam` is filled, the "Coming Soon" badge on the DeepBound card is automatically removed.
+The site fetches this on page load. Empty strings (`""`) leave the link as `#`. When `projects.deepbound.steam` is filled, the "Coming Soon" badge on the Deepbound card is automatically removed.
 
-### 4. Images
+### 4. Deepbound version
+
+The game version lives in one file: `data/deepbound.json` (`{ "version": "0.1.2" }`). Bump it on every release. In the wiki, write `{{version}}` in any `.md` file (cover page included) and it is filled in from that JSON — never hard-code the number.
+
+### 5. Images
 
 The following images are referenced in `index.html` but not included in the repo (add them to the `images/` folder):
 
 | File | Used in |
 |------|---------|
 | `images/hero-bg.jpg` | Hero section background |
-| `images/deepbound.jpg` | DeepBound project card |
+| `images/deepbound.jpg` | Deepbound project card |
 | `images/shadow-of-roles.jpg` | Shadow of Roles project card |
 | `images/founder.jpg` | About / founder section |
 
@@ -93,5 +97,5 @@ Pushes to `main` are automatically deployed via GitHub Pages. The custom domain 
 
 ## Projects featured
 
-- **DeepBound** — 2D modular sandbox engine built in C# (In Development · [Steam Wishlist](#))
+- **Deepbound** — 2D modular sandbox engine built in C# (In Development · [Steam Wishlist](#))
 - **Shadow of Roles** — Turn-based social deduction RPG ([Google Play](#))

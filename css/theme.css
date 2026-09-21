@@ -1,0 +1,51 @@
+/* ====================================================================
+   KankanGames shared theme layer
+   Pixel-font accents + Deepbound-inspired UI treatments (chunky
+   "game panel" buttons/badges, Steam widget sizing). Loaded on every
+   page after the Tailwind CDN script — keep selectors additive so
+   nothing here needs to fight Tailwind's utility classes.
+   ==================================================================== */
+
+.font-pixel {
+  font-family: 'Silkscreen', 'Space Grotesk', monospace;
+}
+
+/* Chunky retro "game button" — used for Steam CTAs. Hard edge instead
+   of a soft shadow, and a tactile press animation on click. */
+.btn-pixel {
+  border-radius: 6px;
+  border: 2px solid rgba(44, 24, 16, 0.35);
+  box-shadow: 3px 3px 0 0 rgba(44, 24, 16, 0.28);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.2s ease;
+}
+.btn-pixel:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 0 rgba(44, 24, 16, 0.28);
+}
+.btn-pixel:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 0 rgba(44, 24, 16, 0.28);
+}
+
+/* Blocky panel border for game-related cards (Steam widget wrapper,
+   factsheet, hero badges) — sharper corners + hard drop shadow. */
+.panel-pixel {
+  border-radius: 8px;
+  border: 2px solid rgba(44, 24, 16, 0.35);
+  box-shadow: 4px 4px 0 0 rgba(44, 24, 16, 0.16);
+}
+
+/* Official Steam store widget embed. Valve serves this at a fixed
+   646x190 — scale it down on narrow screens instead of overflowing. */
+.steam-widget {
+  width: 100%;
+  max-width: 646px;
+  margin: 0 auto;
+}
+.steam-widget iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 646 / 190;
+  height: auto;
+  border: 0;
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Deepbound Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+  <meta name="description" content="Community wiki for Deepbound — controls, mechanics, crafting and items." />
+  <link rel="icon" href="../images/icon.png" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
+
+  <style>
+    /* Palette matches css/theme.css and index.html's Tailwind config
+       so the wiki reads as part of the same site. */
+    :root {
+      --base-background-color: #faf6f1;
+      --base-color: #2c1810;
+      --theme-color: #8b5e3c;
+      --sidebar-background: #f0e6da;
+      --sidebar-nav-link-color: #2c1810;
+      --sidebar-nav-link-color--active: #8b5e3c;
+      --sidebar-nav-pagelink-background--active: rgba(196, 154, 108, 0.18);
+      --search-input-bg: #ffffff;
+      --search-input-border-color: #ddd0c3;
+      --link-color: #8b5e3c;
+      --code-theme-background: #ffffff;
+      --heading-h1-border-color: #ddd0c3;
+    }
+
+    body {
+      background-color: var(--base-background-color);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .markdown-section h1,
+    .markdown-section h2,
+    .markdown-section h3,
+    .sidebar-nav > ul > li > a,
+    .app-name-link {
+      font-family: 'Silkscreen', 'Space Grotesk', monospace;
+    }
+
+    .markdown-section code,
+    pre {
+      font-family: 'Space Grotesk', monospace;
+    }
+
+    .sidebar {
+      border-right: 1px solid #ddd0c3;
+    }
+
+    .markdown-section table th,
+    .markdown-section table td {
+      border: 1px solid #ddd0c3;
+    }
+    .markdown-section table tr {
+      background-color: #ffffff;
+    }
+    .markdown-section table tr:nth-child(2n) {
+      background-color: #f0e6da;
+    }
+
+    .search input {
+      border-radius: 6px;
+    }
+
+    .cover-main a {
+      font-family: 'Silkscreen', 'Space Grotesk', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    // Single source of truth for the game version: data/deepbound.json.
+    // Write {{version}} in any wiki .md file (cover page included) and it is
+    // replaced at render time. Docsify is loaded only after the JSON arrives
+    // so the cover page can't render before the value is known.
+    var wikiVars = { version: '' };
+
+    window.$docsify = {
+      name: 'Deepbound Wiki',
+      markdown: {
+        renderer: {
+          text: function (text) {
+            return text.replace(/\{\{(\w+)\}\}/g, function (match, key) {
+              return key in wikiVars ? wikiVars[key] : match;
+            });
+          }
+        }
+      },
+      nameLink: '#/',
+      loadSidebar: true,
+      loadNavbar: false,
+      coverpage: true,
+      onlyCover: false,
+      subMaxLevel: 2,
+      auto2top: true,
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      },
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: 'Search the wiki...',
+        noData: 'No results found.',
+        depth: 3
+      }
+    };
+  </script>
+  <script>
+    fetch('../data/deepbound.json')
+      .then(function (res) { return res.json(); })
+      .then(function (data) { wikiVars.version = data.version || ''; })
+      .catch(function (err) { console.error('Failed to load deepbound.json', err); })
+      .then(function () {
+        // Search plugin registers itself on window.$docsify, so it goes first;
+        // docsify boots as soon as its own script runs.
+        [
+          'https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js',
+          'https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js'
+        ].forEach(function (src) {
+          var s = document.createElement('script');
+          s.src = src;
+          s.async = false;
+          document.body.appendChild(s);
+        });
+      });
+  </script>
+</body>
+</html>

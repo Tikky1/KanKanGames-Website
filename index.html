@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#faf6f1" />
   <title>KankanGames | Indie Game Studio</title>
-  <meta name="description" content="KankanGames - Independent game studio. Creators of DeepBound, a 2D sandbox with P2P multiplayer, and Shadow of Roles. Performance-first game development." />
+  <meta name="description" content="KankanGames - Independent game studio. Creators of Deepbound, a 2D sandbox with P2P multiplayer, and Shadow of Roles. Performance-first game development." />
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/theme.css" />
 
   <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -24,6 +25,7 @@
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
             mono: ['Space Grotesk', 'monospace'],
+            pixel: ['Silkscreen', 'monospace'],
           },
           colors: {
             background: '#faf6f1',
@@ -105,7 +107,7 @@
         <div id="hero-content">
           <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-6 fade-in">Performance-First Game Development</p>
 
-          <h1 class="font-mono text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight text-foreground fade-in" style="transition-delay: 200ms;">
+          <h1 class="font-pixel text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.15] tracking-tight text-foreground fade-in" style="transition-delay: 200ms;">
             DEEP<span class="text-primary">BOUND</span>
           </h1>
 
@@ -120,14 +122,14 @@
           </div>
 
           <p class="mt-8 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed fade-in" style="transition-delay: 500ms;">
-            Dig, build, survive — and bring your friends. DeepBound is a 2D sandbox built for those who want to go deeper.
+            Dig, build, survive — and bring your friends. Deepbound is a 2D sandbox built for those who want to go deeper.
           </p>
 
           <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 fade-in" style="transition-delay: 700ms;">
-            <a data-link="projects.deepbound.steam" href="#" target="_blank" rel="noopener noreferrer" class="group relative inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-xl font-mono text-sm font-semibold tracking-wider hover:bg-primary/90 transition-colors overflow-hidden">
+            <a data-link="projects.deepbound.steam" href="#" target="_blank" rel="noopener noreferrer" class="btn-pixel group relative inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 font-mono text-sm font-semibold tracking-wider hover:bg-primary/90 transition-colors overflow-hidden">
               <span class="absolute inset-0 bg-accent/10 animate-glow-pulse rounded-xl"></span>
               <svg class="relative h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-              <span class="relative">Wishlist on Steam</span>
+              <span class="relative">Play the Demo</span>
             </a>
             <a data-link="social.discord" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-border bg-card/80 text-foreground px-8 py-3.5 rounded-xl font-mono text-sm font-semibold tracking-wider hover:border-primary/40 hover:text-primary transition-colors shadow-sm">
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.03.056a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
@@ -137,6 +139,9 @@
               View Projects
             </a>
           </div>
+          <a data-link="projects.deepbound.steam" href="#" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-xs font-mono text-muted-foreground hover:text-primary transition-colors fade-in" style="transition-delay: 800ms;">
+            Not ready to play? Wishlist on Steam instead
+          </a>
         </div>
       </div>
 
@@ -152,24 +157,24 @@
         <!-- Section Header -->
         <div class="text-center mb-16">
           <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-4">Portfolio</p>
-          <h2 class="font-mono text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">PROJECTS</h2>
+          <h2 class="font-pixel text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">PROJECTS</h2>
           <p class="mt-4 text-muted-foreground max-w-xl mx-auto leading-relaxed">Crafted with performance in mind, every project is built to push technical boundaries.</p>
         </div>
 
-        <!-- Project 1: DeepBound -->
+        <!-- Project 1: Deepbound -->
         <div id="deepbound" class="mb-8 fade-in">
           <div class="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-sm hover:shadow-md transition-shadow">
             <div class="grid grid-cols-1 lg:grid-cols-2">
               <div class="relative aspect-[16/10] lg:aspect-auto overflow-hidden">
-                <img src="images/deepbound.jpg" alt="DeepBound Engine & Game" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src="images/deepbound.jpg" alt="Deepbound Engine & Game" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div class="absolute inset-0 bg-gradient-to-r from-transparent to-card/30 lg:from-transparent lg:to-card"></div>
               </div>
               <div class="p-8 lg:p-12 flex flex-col justify-center">
                 <div class="flex items-center gap-3 mb-4">
                   <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-semibold bg-primary/10 text-primary border border-primary/20">Featured</span>
-                  <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-semibold bg-secondary text-secondary-foreground border border-border">In Development</span>
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-semibold bg-secondary text-secondary-foreground border border-border">Demo Available</span>
                 </div>
-                <h3 class="font-mono text-2xl lg:text-3xl font-bold text-foreground mb-2">DeepBound</h3>
+                <h3 class="font-pixel text-xl lg:text-2xl font-bold text-foreground mb-2">Deepbound</h3>
                 <p class="font-mono text-sm text-primary mb-4">2D Modular Sandbox Engine & Game</p>
                 <p class="text-muted-foreground leading-relaxed mb-6">Explore infinite underground worlds, build your base, and survive 
 against creatures lurking in the deep — alone or with friends via 
@@ -182,12 +187,19 @@ stutter-free gameplay.</p>
                   <span class="px-3 py-1 rounded-md text-xs font-mono bg-secondary text-secondary-foreground border border-border">Custom Engine</span>
                   <span class="px-3 py-1 rounded-md text-xs font-mono bg-secondary text-secondary-foreground border border-border">C#</span>
                 </div>
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-4 mb-6 flex-wrap">
                   <a id="steam-link" data-link="projects.deepbound.steam" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-mono text-primary hover:gap-3 transition-all">
-                    Wishlist on Steam
+                    Play the Demo
                     <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/></svg>
                   </a>
+                  <a data-link="projects.deepbound.steam" href="#" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-muted-foreground hover:text-primary transition-colors">
+                    Wishlist on Steam
+                  </a>
                   <span id="steam-badge" class="px-2 py-0.5 text-xs font-mono bg-secondary text-muted-foreground border border-border rounded-md">Coming Soon</span>
+                </div>
+
+                <div class="steam-widget panel-pixel overflow-hidden">
+                  <iframe src="https://store.steampowered.com/widget/4508390/" title="Deepbound on Steam" loading="lazy"></iframe>
                 </div>
               </div>
             </div>
@@ -233,7 +245,7 @@ stutter-free gameplay.</p>
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="text-center mb-16">
           <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-4">Engineering</p>
-          <h2 class="font-mono text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">UNDER THE HOOD</h2>
+          <h2 class="font-pixel text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">UNDER THE HOOD</h2>
           <p class="mt-4 text-muted-foreground max-w-xl mx-auto leading-relaxed">Systems programming at its core. Every decision is driven by performance metrics and engineering excellence.</p>
         </div>
 
@@ -315,7 +327,7 @@ stutter-free gameplay.</p>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-20">
           <div class="slide-left">
             <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-4">About the Studio</p>
-            <h2 class="font-mono text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+            <h2 class="font-pixel text-2xl md:text-3xl lg:text-4xl font-bold text-foreground leading-tight">
               PERFORMANCE-FIRST<span class="text-primary"> GAME DEV</span>
             </h2>
             <p class="mt-6 text-muted-foreground leading-relaxed">
@@ -365,13 +377,13 @@ stutter-free gameplay.</p>
 
         <!-- Part 2: Portfolio Shots -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 fade-in">
-          <!-- DeepBound -->
+          <!-- Deepbound -->
           <div class="group relative aspect-square rounded-2xl overflow-hidden border border-border shadow-sm">
-            <img src="images/deepbound.jpg" alt="DeepBound Gameplay" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <img src="images/deepbound.jpg" alt="Deepbound Gameplay" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-foreground/65 via-foreground/10 to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-5">
               <p class="font-mono text-[10px] text-white/60 uppercase tracking-[0.2em] mb-1">Sandbox Engine</p>
-              <p class="font-mono text-base font-bold text-white">DeepBound</p>
+              <p class="font-mono text-base font-bold text-white">Deepbound</p>
             </div>
           </div>
 
@@ -405,7 +417,7 @@ stutter-free gameplay.</p>
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="max-w-3xl mx-auto text-center">
           <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-4">Get in Touch</p>
-          <h2 class="font-mono text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+          <h2 class="font-pixel text-2xl md:text-3xl lg:text-4xl font-bold text-foreground leading-tight">
             LET'S BUILD<span class="text-primary"> SOMETHING</span> GREAT
           </h2>
           <p class="mt-6 text-muted-foreground leading-relaxed max-w-xl mx-auto">

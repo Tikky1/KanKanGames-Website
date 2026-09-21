@@ -8,8 +8,9 @@
   <meta name="description" content="KankanGames press kit — screenshots, factsheet, trailer, and contact for media." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/theme.css" />
   <script>
     tailwind.config = {
       theme: {
@@ -17,6 +18,7 @@
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
             mono: ['Space Grotesk', 'monospace'],
+            pixel: ['Silkscreen', 'monospace'],
           },
           colors: {
             background: '#faf6f1',
@@ -118,12 +120,12 @@
           <div id="hero-logo-wrap" class="hidden mb-6 fade-in justify-center">
             <img id="hero-logo" src="" alt="Game Logo" class="h-20 object-contain" />
           </div>
-          <h1 id="hero-title" class="font-mono text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight text-foreground fade-in">
+          <h1 id="hero-title" class="font-pixel text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.15] tracking-tight text-foreground fade-in">
             PRESS<span class="text-primary"> KIT</span>
           </h1>
           <p id="hero-short-desc" class="hidden mt-6 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed fade-in"></p>
           <div id="hero-ctas" class="hidden mt-10 flex-wrap items-center justify-center gap-4 fade-in">
-            <a id="hero-steam-btn" href="#" target="_blank" rel="noopener noreferrer" class="hidden inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3 rounded-xl font-mono text-sm font-semibold tracking-wider hover:bg-primary/90 transition-colors">
+            <a id="hero-steam-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn-pixel hidden inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3 font-mono text-sm font-semibold tracking-wider hover:bg-primary/90 transition-colors">
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
               View on Steam
             </a>
@@ -136,12 +138,22 @@
       </div>
     </section>
 
+    <!-- ==================== STEAM WIDGET ==================== -->
+    <section class="relative pb-16 lg:pb-20">
+      <div class="mx-auto max-w-4xl px-6 lg:px-8 text-center fade-in">
+        <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-3">Wishlist Now</p>
+        <div class="steam-widget panel-pixel overflow-hidden">
+          <iframe src="https://store.steampowered.com/widget/4508390/" title="Deepbound on Steam" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
     <!-- ==================== FACTSHEET ==================== -->
     <section id="section-factsheet" class="relative py-20 lg:py-28 bg-secondary/40">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="text-center mb-12">
           <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-3">At a Glance</p>
-          <h2 class="font-mono text-4xl md:text-5xl font-bold text-foreground">FACTSHEET</h2>
+          <h2 class="font-pixel text-3xl md:text-4xl font-bold text-foreground">FACTSHEET</h2>
         </div>
         <div class="max-w-4xl mx-auto fade-in">
           <div class="bg-card border border-border rounded-2xl shadow-sm overflow-hidden">
@@ -156,7 +168,7 @@
       <div class="mx-auto max-w-4xl px-6 lg:px-8">
         <div class="text-center mb-12">
           <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-3">Overview</p>
-          <h2 class="font-mono text-4xl md:text-5xl font-bold text-foreground">DESCRIPTION</h2>
+          <h2 class="font-pixel text-3xl md:text-4xl font-bold text-foreground">DESCRIPTION</h2>
         </div>
         <div class="bg-card border border-border rounded-2xl p-8 lg:p-12 shadow-sm fade-in">
           <p id="desc-short" class="hidden text-lg text-foreground font-medium leading-relaxed mb-6 pb-6 border-b border-border"></p>
@@ -170,7 +182,7 @@
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="text-center mb-12">
           <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-3">What's Inside</p>
-          <h2 class="font-mono text-4xl md:text-5xl font-bold text-foreground">FEATURES</h2>
+          <h2 class="font-pixel text-3xl md:text-4xl font-bold text-foreground">FEATURES</h2>
         </div>
         <div id="features-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto"></div>
       </div>
@@ -181,7 +193,7 @@
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="text-center mb-12">
           <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-3">Media</p>
-          <h2 class="font-mono text-4xl md:text-5xl font-bold text-foreground">SCREENSHOTS</h2>
+          <h2 class="font-pixel text-3xl md:text-4xl font-bold text-foreground">SCREENSHOTS</h2>
         </div>
         <div id="screenshots-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
       </div>
@@ -192,7 +204,7 @@
       <div class="mx-auto max-w-4xl px-6 lg:px-8">
         <div class="text-center mb-12">
           <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-3">Watch</p>
-          <h2 class="font-mono text-4xl md:text-5xl font-bold text-foreground">TRAILER</h2>
+          <h2 class="font-pixel text-3xl md:text-4xl font-bold text-foreground">TRAILER</h2>
         </div>
         <div class="fade-in rounded-2xl overflow-hidden border border-border shadow-sm aspect-video bg-secondary">
           <iframe id="trailer-iframe" src="" title="Game Trailer" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -225,7 +237,7 @@
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="text-center mb-12">
           <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-3">Recognition</p>
-          <h2 class="font-mono text-4xl md:text-5xl font-bold text-foreground">AWARDS</h2>
+          <h2 class="font-pixel text-3xl md:text-4xl font-bold text-foreground">AWARDS</h2>
         </div>
         <div id="awards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto"></div>
       </div>
@@ -236,7 +248,7 @@
       <div class="mx-auto max-w-5xl px-6 lg:px-8">
         <div class="text-center mb-12">
           <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-3">What They're Saying</p>
-          <h2 class="font-mono text-4xl md:text-5xl font-bold text-foreground">QUOTES</h2>
+          <h2 class="font-pixel text-3xl md:text-4xl font-bold text-foreground">QUOTES</h2>
         </div>
         <div id="quotes-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
       </div>
@@ -247,7 +259,7 @@
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="text-center mb-12">
           <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-3">Reach Out</p>
-          <h2 class="font-mono text-4xl md:text-5xl font-bold text-foreground">CONTACT</h2>
+          <h2 class="font-pixel text-3xl md:text-4xl font-bold text-foreground">CONTACT</h2>
           <p class="mt-4 text-muted-foreground max-w-xl mx-auto leading-relaxed">For press inquiries, review copies, or interview requests.</p>
         </div>
 

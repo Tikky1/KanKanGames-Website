@@ -9,9 +9,10 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
 
 <script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/theme.css" />
 <script>
   tailwind.config = {
     theme: {
@@ -19,6 +20,7 @@
         fontFamily: {
           sans: ['Inter', 'sans-serif'],
           mono: ['Space Grotesk', 'monospace'],
+          pixel: ['Silkscreen', 'monospace'],
         },
         colors: {
           background: '#faf6f1',
@@ -89,7 +91,7 @@
     <!-- ==================== TITLE ==================== -->
     <div class="text-center animate-fade-up">
       <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-4">Guess The Country</p>
-      <h1 class="font-mono text-5xl md:text-6xl font-bold tracking-tight text-foreground">
+      <h1 class="font-pixel text-4xl md:text-5xl font-bold tracking-tight text-foreground">
         COUNTRY<span class="text-primary">DLE</span>
       </h1>
       <p class="mt-4 text-muted-foreground max-w-md mx-auto leading-relaxed">

@@ -9,9 +9,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/theme.css" />
   <script>
     tailwind.config = {
       theme: {
@@ -19,6 +20,7 @@
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
             mono: ['Space Grotesk', 'monospace'],
+            pixel: ['Silkscreen', 'monospace'],
           },
           colors: {
             background: '#faf6f1',
@@ -51,7 +53,7 @@
   <main class="py-24 lg:py-32">
     <div class="mx-auto max-w-3xl px-6 lg:px-8">
       <p class="font-mono text-primary text-sm tracking-[0.3em] uppercase mb-4">Legal</p>
-      <h1 class="font-mono text-4xl md:text-5xl font-bold text-foreground mb-2">Privacy Policy</h1>
+      <h1 class="font-pixel text-3xl md:text-4xl font-bold text-foreground mb-2">Privacy Policy</h1>
       <p class="text-sm text-muted-foreground mb-12">Last updated: August 22, 2026</p>
 
       <div class="prose prose-neutral max-w-none text-foreground leading-relaxed space-y-6">
